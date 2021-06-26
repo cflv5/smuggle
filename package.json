@@ -1,0 +1,19 @@
+{
+  "name": "smuggle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cflv5/smuggle.git"
+  },
+  "author": "cflv5",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/cflv5/smuggle/issues"
+  },
+  "homepage": "https://github.com/cflv5/smuggle#readme"
+}
