@@ -86,3 +86,10 @@ test("removing header from a response", () => {
     expect(() => response.removeMultiValueHeader("X-JEST-MULTI-HEADER")).not.toThrow();
     expect(response.get("X-JEST-MULTI-HEADER")).toBe(undefined);
 });
+
+test("set content type using setContentType", () => {
+    const response = new Response();
+
+    expect(() => response.setContentType("pdf")).not.toThrow();
+    expect(response.get("Content-Type")).toBe("application/pdf");
+});
