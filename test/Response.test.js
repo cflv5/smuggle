@@ -93,3 +93,39 @@ test("set content type using setContentType", () => {
     expect(() => response.setContentType("pdf")).not.toThrow();
     expect(response.get("Content-Type")).toBe("application/pdf");
 });
+
+test("using json function to send json object", () => {
+    const response = new Response();
+
+    const responseObject = {
+        field: "value",
+        field2: "value"
+    };
+    response.json(responseObject);
+
+    expect(response.body).toBe(JSON.stringify(responseObject));
+    expect(response.get("Content-Type")).toBe("application/json");
+});
+
+test("using send function to send h1 tag", () => {
+    const response = new Response();
+
+    const h1 = "<h1> Header </h1>";
+    response.send(h1);
+
+    expect(response.body).toBe(h1);
+    expect(response.get("Content-Type")).toBe("text/html");
+});
+
+test("using send function to send json object", () => {
+    const response = new Response();
+
+    const body = {
+        f1: "schumacher"
+    };
+    response.send(body);
+
+    expect(response.body).toBe(JSON.stringify(body));
+    expect(response.get("Content-Type")).toBe("application/json");
+});
+
