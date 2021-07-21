@@ -144,3 +144,10 @@ test("rendering a view with mocked app", () => {
     expect(response.get("Content-Type")).toBe("text/html");
 });
 
+test('should send http status 200 and body OK when called sendStatus', () => {
+    const response = new Response();
+
+    response.sendStatus(200);
+    expect(response.body).toBe("OK");
+    expect(response.getStatus()).toBe(200);
+});
