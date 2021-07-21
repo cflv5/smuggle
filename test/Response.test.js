@@ -129,3 +129,18 @@ test("using send function to send json object", () => {
     expect(response.get("Content-Type")).toBe("application/json");
 });
 
+test("rendering a view with mocked app", () => {
+    // Mocking app and renderFile function
+    const app = {
+        renderFile: v => v
+    };
+
+    const response = new Response(app);
+
+    const view = "<h1> Header </h1>";
+    response.render(view);
+
+    expect(response.body).toBe(view);
+    expect(response.get("Content-Type")).toBe("text/html");
+});
+
