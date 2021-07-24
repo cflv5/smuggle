@@ -20,6 +20,7 @@
     "jest": "^27.0.6"
   },
   "dependencies": {
+    "cookie": "^0.4.1",
     "http-status": "^1.5.0",
     "mime": "^2.5.2"
   }
