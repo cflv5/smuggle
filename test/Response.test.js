@@ -4,7 +4,7 @@ test("creating a response object", () => {
     const response = new Response();
 
     expect(response).toEqual({
-        headers: {}, 
+        headers: {},
         multiValueHeaders: {},
         body: "",
         statusCode: null,
@@ -62,7 +62,7 @@ test("getting a header value", () => {
 
     expect(() => response.set("X-JEST-HEADER", "JEST &123456")).not.toThrow();
     expect(response.get("X-JEST-HEADER")).toBe("JEST &123456");
-    
+
     expect(response.get()).toBe(undefined);
 
     expect(() => response.set("X-JEST-HEADER", ["JEST &123456"])).not.toThrow();
@@ -83,7 +83,7 @@ test("removing header from a response", () => {
     expect(() => response.header("X-JEST-HEADER", "JEST &123456")).not.toThrow();
     expect(() => response.removeHeader("X-JEST-HEADER")).not.toThrow();
     expect(response.get("X-JEST-HEADER")).toBe(undefined);
-    
+
     expect(() => response.header("X-JEST-MULTI-HEADER", ["JEST &123456"])).not.toThrow();
     expect(() => response.removeMultiValueHeader("X-JEST-MULTI-HEADER")).not.toThrow();
     expect(response.get("X-JEST-MULTI-HEADER")).toBe(undefined);
@@ -152,4 +152,17 @@ test('should send http status 200 and body OK when called sendStatus', () => {
     response.sendStatus(200);
     expect(response.body).toBe("OK");
     expect(response.getStatus()).toBe(200);
+});
+
+test('should set cookie', () => {
+    const response = new Response();
+
+    response.setCookie("JSESSIONID", "25458F0B925A93EC1A63352482015D1B", { secure: true, httpOnly: true });
+    expect(response.get("Set-Cookie")).toEqual(["JSESSIONID=25458F0B925A93EC1A63352482015D1B; Path=/; HttpOnly; Secure"]);
+
+    response.setCookie("connect.sid", "s%3Ak-y2htc6rWj-2oXGF12_uX5OMu5javD1.ET%2FQUIU6Am%2FmQr0934pfxzNozSVZaCH9AvtveZj1594", { secure: true, httpOnly: true, path: "/admin" });
+    expect(response.get("Set-Cookie")).toEqual([
+        "JSESSIONID=25458F0B925A93EC1A63352482015D1B; Path=/; HttpOnly; Secure",
+        "connect.sid=s%253Ak-y2htc6rWj-2oXGF12_uX5OMu5javD1.ET%252FQUIU6Am%252FmQr0934pfxzNozSVZaCH9AvtveZj1594; Path=/admin; HttpOnly; Secure"
+    ]);
 });
