@@ -166,3 +166,30 @@ test('should set cookie', () => {
         "connect.sid=s%253Ak-y2htc6rWj-2oXGF12_uX5OMu5javD1.ET%252FQUIU6Am%252FmQr0934pfxzNozSVZaCH9AvtveZj1594; Path=/admin; HttpOnly; Secure"
     ]);
 });
+
+test('should build the response after some operations', () => {
+    const response = new Response();
+    const user = {
+        userid: "1234567890",
+        name: "name",
+        password: "1234"
+    };
+
+    response.send(user);
+
+    response.setCookie("sid", "A123456789B", { httpOnly: true });
+
+    response.setBase64Encoded(true);
+
+    expect(response.build()).toEqual({
+        isBase64Encoded: true,
+        body: JSON.stringify(user),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        multiValueHeaders: {
+            "Set-Cookie": ["sid=A123456789B; Path=/; HttpOnly"]
+        },
+        statusCode: null
+    });
+});
