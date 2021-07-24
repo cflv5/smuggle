@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/cflv5/smuggle/issues"
   },
-  "homepage": "https://github.com/cflv5/smuggle#readme"
+  "homepage": "https://github.com/cflv5/smuggle#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "cookie": "^0.4.1",
+    "http-status": "^1.5.0",
+    "mime": "^2.5.2"
+  }
 }
