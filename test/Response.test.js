@@ -42,6 +42,7 @@ test("setting header value to a response using set function", () => {
 
     expect(() => response.set("X-JEST-HEADER", "JEST &123456")).not.toThrow();
     expect(() => response.set("X-JEST-HEADER_2", ["JEST &123456", "JEST value"])).not.toThrow();
+    expect(() => response.set("X-JEST-HEADER_2", ["JEST append"])).not.toThrow();
     expect(() => response.set({
         "X-JEST-HEADER_3": "JEST HEADER_VALUE",
         "X-JEST-HEADER_4": "JEST HEADER_VALUE"
@@ -65,7 +66,8 @@ test("getting a header value", () => {
     expect(response.get()).toBe(undefined);
 
     expect(() => response.set("X-JEST-HEADER", ["JEST &123456"])).not.toThrow();
-    expect(Array.isArray(response.get("X-JEST-HEADER"))).toBe(true);
+    expect(() => response.set("X-JEST-HEADER", ["JEST append"])).not.toThrow();
+    expect(response.get("X-JEST-HEADER")).toEqual(["JEST &123456", "JEST append"]);
 });
 
 test("using header function to set and get a header", () => {
