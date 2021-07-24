@@ -7,7 +7,7 @@ test("creating a response object", () => {
         headers: {},
         multiValueHeaders: {},
         body: "",
-        statusCode: null,
+        statusCode: 200,
         base64Encoded: false,
         statusDescription: ""
     });
@@ -190,6 +190,6 @@ test('should build the response after some operations', () => {
         multiValueHeaders: {
             "Set-Cookie": ["sid=A123456789B; Path=/; HttpOnly"]
         },
-        statusCode: null
+        statusCode: 200
     });
 });
