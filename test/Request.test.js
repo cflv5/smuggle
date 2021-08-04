@@ -27,3 +27,8 @@ test('should accepts gzip encoding', () => {
     expect(request.acceptsEncodings("gzip", "br")).toBe("br");
     expect(request.acceptsEncodings("gzip")).toBe("gzip");
 });
+
+test('should get header fields of incoming request', () => {
+    expect(request.get("host")).toBe("hostname");
+    expect(request.get("cookie")).toBe("sessionId=AS2s45sshbutUsIfnbbmdi");
+});
