@@ -1,0 +1,123 @@
+{
+    "rawUrl": "https://hostname/.netlify/functions/path-name?name1=value1&name1=value2&name2:value",
+    "rawQuery": "name1=value1&name1=value2&name2:value",
+    "path": "/.netlify/functions/path-name",
+    "httpMethod": "GET",
+    "headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng",
+        "accept-encoding": "br, gzip",
+        "accept-language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7",
+        "cache-control": "max-age=0",
+        "client-ip": "123.123.123.123",
+        "connection": "keep-alive",
+        "cookie": "sessionId=AS2s45sshbutUsIfnbbmdi",
+        "forwarded": "for=123.123.123.123;proto=https",
+        "host": "hostname",
+        "sec-ch-ua": "\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "none",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36",
+        "x-bb-ab": "0.805148",
+        "x-bb-loop": "1",
+        "x-forwarded-for": "123.123.123.123, 123.123.123.123",
+        "x-forwarded-proto": "https",
+        "x-language": "tr,tr;q=0.9,en,en;q=0.7",
+        "x-nf-client-connection-ip": "123.123.123.123",
+        "x-nf-connection-proto": "https",
+        "x-nf-request-id": "01FC6CGC38APS1M66C5A6J24GZ"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng"
+        ],
+        "Accept-Encoding": [
+            "br, gzip"
+        ],
+        "Accept-Language": [
+            "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+        ],
+        "Cache-Control": [
+            "max-age=0"
+        ],
+        "Client-Ip": [
+            "123.123.123.123"
+        ],
+        "Connection": [
+            "keep-alive"
+        ],
+        "Cookie": [
+            "sessionId=AS2s45sshbutUsIfnbbmdi"
+        ],
+        "Forwarded": [
+            "for=123.123.123.123;proto=https"
+        ],
+        "Sec-Ch-Ua": [
+            "\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\""
+        ],
+        "Sec-Ch-Ua-Mobile": [
+            "?0"
+        ],
+        "Sec-Fetch-Dest": [
+            "document"
+        ],
+        "Sec-Fetch-Mode": [
+            "navigate"
+        ],
+        "Sec-Fetch-Site": [
+            "none"
+        ],
+        "Sec-Fetch-User": [
+            "?1"
+        ],
+        "Upgrade-Insecure-Requests": [
+            "1"
+        ],
+        "User-Agent": [
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36"
+        ],
+        "X-Bb-Ab": [
+            "0.805148"
+        ],
+        "X-Country": [
+            "TR"
+        ],
+        "X-Forwarded-For": [
+            "123.123.123.123, 123.123.123.123"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ],
+        "X-Language": [
+            "tr,tr;q=0.9,en,en;q=0.7"
+        ],
+        "X-Nf-Client-Connection-Ip": [
+            "123.123.123.123"
+        ],
+        "X-Nf-Connection-Proto": [
+            "https"
+        ],
+        "X-Nf-Request-Id": [
+            "01FC6CGC38APS1M66C5A6J24GZ"
+        ],
+        "host": [
+            "hostname"
+        ]
+    },
+    "queryStringParameters": {
+        "name1": "value1, value2",
+        "name2": "value"
+    },
+    "multiValueQueryStringParameters": {
+        "name1": [
+            "value1",
+            "value2"
+        ],
+        "name2": "value"
+    },
+    "body": "",
+    "isBase64Encoded": false
+}
