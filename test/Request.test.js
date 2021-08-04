@@ -9,6 +9,8 @@ test('should create request', () => {
     expect(request.secure).toBe(true);
     expect(request.protocol).toBe("https");
     expect(request.query).toEqual({name1: ["value1", "value2"], name2: "value"});
+    expect(request.ips).toEqual(["123.123.123.123", "123.123.123.123"]);
+    expect(request.ip).toBe("123.123.123.123");
 });
 
 test('should accepts html and xml types rejects json', () => {
