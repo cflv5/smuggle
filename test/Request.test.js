@@ -2,11 +2,28 @@ const Request = require("../lib/Request");
 
 const event = require("./event.json");
 
-test('should create request', () => {
-    const request = new Request(event);
+const request = new Request(event);
 
+test('should create request', () => {
     expect(request.cookies).toEqual({ sessionId: "AS2s45sshbutUsIfnbbmdi" });
     expect(request.secure).toBe(true);
     expect(request.protocol).toBe("https");
     expect(request.query).toEqual({name1: ["value1", "value2"], name2: "value"});
+});
+
+test('should accepts html and xml types rejects json', () => {
+    expect(request.accepts("html", "application/xml")).toBe("html");
+    expect(request.accepts(["application/xml"])).toBe("application/xml");
+    expect(request.accepts("json")).toBe(false);
+});
+
+test('should accepts tr and en-US languages rejecets fr', () => {
+    expect(request.acceptLanguages("tr")).toBe("tr");
+    expect(request.acceptLanguages("en-US")).toBe("en-US");
+    expect(request.acceptLanguages("fr")).toBe(false);
+});
+
+test('should accepts gzip encoding', () => {
+    expect(request.acceptsEncodings("gzip", "br")).toBe("br");
+    expect(request.acceptsEncodings("gzip")).toBe("gzip");
 });
