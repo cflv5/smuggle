@@ -1,4 +1,5 @@
 const App = require("../lib/Application");
+const FilterManager = require("../lib/filter/FilterManager");
 
 test('should create app instance with options', () => {
     function decode(str) {
@@ -62,4 +63,41 @@ test('should throw as no middleware is specified', () => {
     const app = new App();
 
     expect(() => app.use("/")).toThrow(new TypeError("There should be at least a middleware"));
+});
+
+test('should set external FilterManager to the app as a router', () => {
+    // router
+    const app = new App();
+
+    async function api() {
+        return {
+            users: [
+                {
+                    name: "Name",
+                    id: 1
+                },
+                {
+                    id: 2
+                }
+            ]
+        };
+    };
+
+    const manager = new FilterManager();
+
+    expect(() => {
+        manager.use(async function (req, res, next) {
+            if (req.user) {
+                return next();
+            }
+            res.redirect("/login");
+        });
+        manager.get("/all", async function (req, res, next) {
+            const users = api();
+
+            res.send(users);
+        });
+
+        app.use("/users", manager);
+    }).not.toThrow();
 });
