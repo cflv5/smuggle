@@ -81,7 +81,7 @@ test('should set external FilterManager to the app as a router', () => {
                 }
             ]
         };
-    };
+    }
 
     const manager = new FilterManager();
 
@@ -100,4 +100,20 @@ test('should set external FilterManager to the app as a router', () => {
 
         app.use("/users", manager);
     }).not.toThrow();
+});
+
+test('should render ejs file and throw for non-existent file', () => {
+    const app = new App({
+        "lambda task root": "test",
+        "functions root": ".",
+        "function name": ".",
+        view: {
+            folder: "view",
+            engine: require("ejs"),
+            name: "ejs"
+        }
+    });
+
+    expect(() => app.renderFile("index", { message: "Message" })).not.toThrow();
+    expect(() => app.renderFile("non-existent-file", { message: "Message" })).toThrow();
 });
